@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Для тебя ❤️</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffe6eb;
+            color: #4a4a4a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            max-width: 500px;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+        h1 {
+            color: #ff4d6d;
+            font-size: 1.5rem;
+            line-height: 1.4;
+            margin-bottom: 30px;
+        }
+        .btn {
+            background-color: #ff4d6d;
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            font-size: 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.2s, background-color 0.2s;
+            box-shadow: 0 4px 10px rgba(255, 77, 109, 0.3);
+            margin: 5px;
+        }
+        .btn:hover {
+            background-color: #ff758f;
+            transform: scale(1.05);
+        }
+        .btn-secondary {
+            background-color: #a3a3a3;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .btn-secondary:hover {
+            background-color: #b5b5b5;
+        }
+        .step {
+            display: none;
+        }
+        .step.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .heart {
+            font-size: 40px;
+            margin-bottom: 15px;
+            animation: pulse 1s infinite alternate;
+        }
+        @keyframes pulse {
+            to { transform: scale(1.1); }
+        }
+        .text-left {
+            text-align: left;
+            line-height: 1.6;
+            font-size: 1.05rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div id="step1" class="step active">
+            <div class="heart">✨</div>
+            <h1>У меня есть для тебя кое-что...</h1>
+            <button class="btn" onclick="nextStep(2)">Нажми на меня</button>
+        </div>
+
+        <div id="step2" class="step">
+            <div class="heart">😊</div>
+            <h1>Первое задание:<br>Пожалуйста, улыбнись!</h1>
+            <button class="btn" onclick="nextStep(3)">Я улыбнулась</button>
+        </div>
+
+        <div id="step3" class="step">
+            <div class="heart">😁</div>
+            <h1>А теперь улыбнись еще шире!</h1>
+            <button class="btn" onclick="nextStep(4)">Вот так?</button>
+        </div>
+
+        <div id="step4" class="step">
+            <div class="heart">💖</div>
+            <h1>Молодец! 🥰<br>Ты готова читать дальше?</h1>
+            <button class="btn" onclick="nextStep(5)">Да</button>
+            <button class="btn btn-secondary" onclick="nextStep(6)">Нет</button>
+        </div>
+
+        <div id="step5" class="step">
+            <div class="heart">❤️</div>
+            <h1 style="margin-bottom: 15px;">Моё солнце, прости меня...</h1>
+            <div class="text-left">
+                <p>Я очень сильно накосячил, когда проигнорировал тебя, видя, что у тебя не было настроения. Мне нет оправдания — в этот момент я должен был быть рядом, обнять тебя, выслушать или просто молча побыть с тобой.</p>
+                <p>Мне очень жаль, что я заставил тебя чувствовать себя одиноко. Я всё осознал и больше не допущу такой глупости. Прости меня, пожалуйста. Я тебя очень люблю.</p>
+            </div>
+        </div>
+
+        <div id="step6" class="step">
+            <div class="heart">🥺</div>
+            <h1>Ты уверена?</h1>
+            <button class="btn" onclick="nextStep(7)">Да</button>
+            <button class="btn btn-secondary" onclick="nextStep(4)">Нет</button>
+        </div>
+
+        <div id="step7" class="step">
+            <div class="heart">🩹</div>
+            <h1>Я всё равно скажу...</h1>
+            <p style="font-size: 1.2rem; line-height: 1.6;">
+                Прости, что не был рядом тогда, когда тебе это было нужно больше всего. 
+                Я действительно очень сожалею.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function nextStep(stepNumber) {
+            const steps = document.querySelectorAll('.step');
+            steps.forEach(step => step.classList.remove('active'));
+            
+            const currentStep = document.getElementById('step' + stepNumber);
+            if (currentStep) {
+                currentStep.classList.add('active');
+            }
+        }
+    </script>
+
+</body>
+</html>
